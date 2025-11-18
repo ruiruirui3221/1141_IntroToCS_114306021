@@ -1,0 +1,144 @@
+body {
+    background-color: #lightblue;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Main container */
+.main-container {
+    width: 1000px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+/* Left panel */
+.left-panel {
+    width: 30%;
+    background: dimgray;
+    color: white;
+}
+
+.photo-panel img {
+    width: 100%;
+    display: block;
+}
+
+.text-content {
+    padding: 20px;
+}
+
+.name {
+    margin-bottom: 5px;
+}
+
+.role {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.school-logo {
+    width: 120px;
+    margin-top: 20px;
+}
+
+/* Right panel */
+.right-panel {
+    width: 70%;
+    padding: 25px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    border-bottom: 2px solid #333;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+}
+
+/* Education */
+.edu-item {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.year {
+    width: 120px;
+    font-weight: bold;
+}
+
+.description {
+    flex-grow: 1;
+}
+
+/* Skill Tags */
+.tag {
+    display: inline-block;
+    background: #dfe7ff;
+    color: #2b3d72;
+    padding: 5px 12px;
+    border-radius: 15px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* Homework & Lab */
+.two-columns {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card a {
+    text-decoration: none;
+    color: #3366cc;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+/* Favorite Music */
+.music-row {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.music-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.song-title {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.music-note {
+    margin-top: 15px;
+    color: #444;
+}
