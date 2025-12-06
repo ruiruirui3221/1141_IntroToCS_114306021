@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentID_Number Guessing Game</title>
+</head>
+<body>
+    <h1>StudentID_Number Guessing Game</h1>
+
+    <div id="image"></div>
+
+    <script>
+        var answer = Math.floor(Math.random() * 100) + 1;
+        var chances = 7;
+        var min = 1;
+        var max = 100;
+
+        while (chances > 0) {
+            var input = window.prompt("Enter a number between " + min + " and " + max + " (Attempts left: " + chances + ")");
+
+            if (input === null) {
+                alert("You must enter a value!");
+                continue;
+            }
+
+            input = input.trim();
+
+            if (input === "" || isNaN(input)) {
+                alert("Invalid input! Please enter a number.");
+                continue;
+            }
+
+            var guess = Number(input);
+
+            if (guess < min || guess > max) {
+                alert("Your guess is outside the valid range!");
+                continue;
+            }
+
+            chances--;
+
+            if (guess === answer) {
+                alert("Correct! The answer is " + answer);
+                document.getElementById("image").innerHTML = '<img src="correct.jpg" alt="correct">';
+                break;
+            } else if (guess < answer) {
+                min = guess + 1;
+            } else {
+                max = guess - 1;
+            }
+
+            if (chances === 0) {
+                alert("Game over! The correct answer was " + answer);
+                document.getElementById("image").innerHTML = '<img src="wrong.jpg" alt="wrong">';
+            }
+        }
+    </script>
+</body>
+</html>
