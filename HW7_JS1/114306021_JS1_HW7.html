@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>StudentID_HW7_1A2B</title>
+</head>
+<body>
+<h1>StudentID_HW7_1A2B</h1>
+
+<input id="guessInput" type="text" maxlength="4" placeholder="Enter 4 digits">
+<button onclick="play()">Guess</button>
+
+<div id="record"></div>
+
+<script>
+var answer = generateAnswer();
+var attempts = 0;
+
+function generateAnswer() {
+let pool = [0,1,2,3,4,5,6,7,8,9];
+let ans = "";
+for (let i = 0; i < 4; i++) {
+let idx = Math.floor(Math.random() * pool.length);
+ans += pool[idx];
+pool.splice(idx, 1);
+}
+return ans;
+}
+
+function isValid(str) {
+if (str.length !== 4) return false;
+if (!/^\d{4}$/.test(str)) return false;
+let set = new Set(str);
+return set.size === 4;
+}
+
+function checkAB(guess, ans) {
+let A = 0, B = 0;
+for (let i = 0; i < 4; i++) {
+if (guess[i] === ans[i]) A++;
+else if (ans.includes(guess[i])) B++;
+}
+return `${A}A${B}B`;
+}
+
+function play() {
+const inputField = document.getElementById("guessInput");
+const guess = inputField.value.trim();
+
+if (!isValid(guess)) {
+alert("Invalid input! Enter 4 unique digits.");
+inputField.value = "";
+return;
+}
+
+attempts++;
+const result = checkAB(guess, answer);
+
+document.getElementById("record").innerHTML +=
+`<p>Guess ${attempts}: ${guess} → ${result}</p>`;
+
+if (result === "4A0B") {
+alert(`Correct! Attempts used: ${attempts}`);
+}
+
+inputField.value = "";
+}
+</script>
+</body>
+</html>
